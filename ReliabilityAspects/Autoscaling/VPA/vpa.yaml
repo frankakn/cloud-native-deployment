@@ -1,0 +1,77 @@
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: teastore-deployment-vpa-webui
+  namespace: teastore-namespace
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       Deployment
+    name:       teastore-webui
+  updatePolicy:
+    updateMode: "Off" # can be set to auto, recreate, initial or off
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: teastore-deployment-vpa-recommender
+  namespace: teastore-namespace
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       Deployment
+    name:       teastore-recommender
+  updatePolicy:
+    updateMode: "Off" # can be set to auto, recreate, initial or off
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: teastore-deployment-vpa-registry
+  namespace: teastore-namespace
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       Deployment
+    name:       teastore-registry
+  updatePolicy:
+    updateMode: "Off" # can be set to auto, recreate, initial or off
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: teastore-deployment-vpa-image
+  namespace: teastore-namespace
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       Deployment
+    name:       teastore-image
+  updatePolicy:
+    updateMode: "Off" # can be set to auto, recreate, initial or off
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: teastore-deployment-vpa-persistence
+  namespace: teastore-namespace
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       Deployment
+    name:       teastore-persistence
+  updatePolicy:
+    updateMode: "Off" # can be set to auto, recreate, initial or off
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: teastore-deployment-vpa-auth
+  namespace: teastore-namespace
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind:       Deployment
+    name:       teastore-auth
+  updatePolicy:
+    updateMode: "Off" # can be set to auto, recreate, initial or off

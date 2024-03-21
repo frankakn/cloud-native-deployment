@@ -1,0 +1,13 @@
+apiVersion: rds.services.k8s.aws/v1alpha1
+kind: DBSubnetGroup
+metadata:
+  name: mariadb-subnets
+  namespace: teastore-namespace
+spec:
+  name: mariadb-subnets
+  description: private subnets from EKS cluster
+  subnetIDs:
+    - subnet-001193113e046837f
+    - subnet-0439acffe866258e0
+    - subnet-0c198399cc57baa48
+  tags: []

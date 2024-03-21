@@ -1,0 +1,21 @@
+apiVersion: rds.services.k8s.aws/v1alpha1
+kind: DBInstance
+metadata:
+  name: "maria-db"
+  namespace: "teastore-namespace"
+spec:
+  allocatedStorage: 20
+  dbInstanceClass: db.t4g.micro
+  dbInstanceIdentifier: "maria-db"
+  dbName: "teadb"
+  dbSubnetGroupName: "mariadb-subnets"
+  vpcSecurityGroupIDs:
+  - "sg-0b6096a8ab37b3735" #adjust
+  engine: mariadb
+  engineVersion: "10.6"
+  multiAZ: true
+  masterUsername: "teauser"
+  masterUserPassword:
+    namespace: default
+    name: "maria-db-password"
+    key: password
