@@ -143,10 +143,10 @@ topology_template:
             ports: {}
             rate_limiting: none
             idempotent: false
-    registy:
+    registry:
       type: cna.qualityModel.entities.BackingService
       metadata:
-        label: Registy
+        label: Registry
         fontSize: '14'
         size_width: '300'
         size_height: '180'
@@ -181,7 +181,7 @@ topology_template:
               type: cna.qualityModel.relationships.Provides.Endpoint
         - host:
             node: aws_ecs
-            relationship: aws_ecs_hosts_registy
+            relationship: aws_ecs_hosts_registry
     sql:
       type: cna.qualityModel.entities.Endpoint
       metadata:
@@ -2140,7 +2140,7 @@ topology_template:
       properties:
         usage_relation: persistence
         sharding_level: 1
-    aws_ecs_hosts_registy:
+    aws_ecs_hosts_registry:
       type: cna.qualityModel.entities.HostedOn.DeploymentMapping
       properties:
         deployment: automated-declarative

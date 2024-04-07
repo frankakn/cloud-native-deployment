@@ -174,10 +174,10 @@ topology_template:
             ports: {}
             rate_limiting: none
             idempotent: false
-    registy:
+    registry:
       type: cna.qualityModel.entities.BackingService
       metadata:
-        label: Registy
+        label: Registry
         fontSize: '14'
         size_width: '300'
         size_height: '180'
