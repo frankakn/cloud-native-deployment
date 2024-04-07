@@ -212,7 +212,7 @@ topology_template:
               type: cna.qualityModel.relationships.Provides.Endpoint
         - host:
             node: aws_eks_cluster
-            relationship: aws_eks_cluster_hosts_registy
+            relationship: aws_eks_cluster_hosts_registry
     sql:
       type: cna.qualityModel.entities.Endpoint
       metadata:
@@ -2181,7 +2181,7 @@ topology_template:
         automated_restart_policy: onProcessFailure
         assigned_account: default-account
         resource_requirements: unstated
-    aws_eks_cluster_hosts_registy:
+    aws_eks_cluster_hosts_registry:
       type: cna.qualityModel.entities.HostedOn.DeploymentMapping
       properties:
         deployment: automated-declarative
