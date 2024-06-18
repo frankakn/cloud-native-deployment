@@ -66,7 +66,7 @@ service_template:
         maintenance: transparent
         provisioning: transparent
         supported_artifacts:
-          - Beanstalk Application
+          - AWS.Beanstalk.Application
         availability_zone: us-east-1a,us-east-1b,us-east-1c
         region: us-east-1
         supported_update_strategies:
@@ -92,7 +92,7 @@ service_template:
         maintenance: transparent
         provisioning: transparent
         supported_artifacts:
-          - RDS Instance
+          - AWS.RDS.Instance
         availability_zone: us-east-1a,us-east-1b,us-east-1c
         region: us-east-1
         supported_update_strategies:
@@ -180,13 +180,16 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: jar
         load_shedding: false
         assigned_networks:
           - teastore-network
         component_version: ''
         admin_credential: ''
         providedFunctionality: ''
+      artifacts:
+        jar:
+          type: Implementation.Java
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -242,7 +245,6 @@ service_template:
         managed: false
         software_type: custom
         stateless: false
-        artifact: RDS Instance
         load_shedding: false
         assigned_networks:
           - teastore-network
@@ -250,6 +252,10 @@ service_template:
         admin_credential: ''
         name: ''
         shards: 1
+      artifacts:
+        container_image:
+          type: AWS.RDS.Instance
+          file: ''      
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -384,12 +390,15 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: jar
         load_shedding: false
         assigned_networks:
           - teastore-network
         component_version: ''
         admin_credential: ''
+      artifacts:
+        jar:
+          type: Implementation.Java
+          file: ''
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -551,12 +560,15 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: jar
         load_shedding: false
         assigned_networks:
           - teastore-network
         component_version: ''
         admin_credential: ''
+      artifacts:
+        jar:
+          type: Implementation.Java
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -744,12 +756,15 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: jar
         load_shedding: false
         assigned_networks:
           - teastore-network
         component_version: ''
         admin_credential: ''
+      artifacts:
+        jar:
+          type: Implementation.Java
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -996,12 +1011,15 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: jar
         load_shedding: false
         assigned_networks:
           - teastore-network
         component_version: ''
         admin_credential: ''
+      artifacts:
+        jar:
+          type: Implementation.Java
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -1507,12 +1525,15 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: jar
         load_shedding: false
         assigned_networks:
           - teastore-network
         component_version: ''
         admin_credential: ''
+      artifacts:
+        jar:
+          type: Implementation.Java
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint

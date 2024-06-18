@@ -88,7 +88,7 @@ service_template:
         maintenance: automated
         provisioning: transparent
         supported_artifacts:
-          - OCI Image
+          - Deployment.Image.VM
         availability_zone: us-east-1a,us-east-1b,us-east-1c
         region: us-east-1
         supported_update_strategies:
@@ -121,7 +121,7 @@ service_template:
         maintenance: automated
         provisioning: automated-coded
         supported_artifacts:
-          - AWS EKS Cluster
+          - AWS.EKS.Cluster
         availability_zone: us-east-1a,us-east-1b,us-east-1c
         region: us-east-1
         supported_update_strategies:
@@ -150,7 +150,7 @@ service_template:
         maintenance: transparent
         provisioning: transparent
         supported_artifacts:
-          - RDS Instance
+          - AWS.RDS.Instance
         availability_zone: us-east-1a,us-east-1b,us-east-1c
         region: us-east-1
         supported_update_strategies:
@@ -175,7 +175,6 @@ service_template:
         managed: true
         software_type: proprietary
         stateless: true
-        artifact: ''
         load_shedding: false
         assigned_networks:
           - teastore-private-1
@@ -270,7 +269,6 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: OCI Image
         load_shedding: false
         assigned_networks:
           - teastore-private-1
@@ -279,6 +277,10 @@ service_template:
         component_version: ''
         admin_credential: ''
         providedFunctionality: ''
+      artifacts:
+        container_image:
+          type: Deployment.Image.VM
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -334,7 +336,6 @@ service_template:
         managed: true
         software_type: custom
         stateless: false
-        artifact: RDS Instance
         load_shedding: false
         assigned_networks:
           - teastore-private-1
@@ -344,6 +345,10 @@ service_template:
         admin_credential: ''
         name: teadb
         shards: 1
+      artifacts:
+        rds_instance:
+          type: AWS.RDS.Instance
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -478,7 +483,6 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: OCI Image
         load_shedding: false
         assigned_networks:
           - teastore-private-1
@@ -486,6 +490,10 @@ service_template:
           - teastore-private-3
         component_version: ''
         admin_credential: ''
+      artifacts:
+        container_image:
+          type: Deployment.Image.VM
+          file: ''
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -647,7 +655,6 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: OCI Image
         load_shedding: false
         assigned_networks:
           - teastore-private-1
@@ -655,6 +662,10 @@ service_template:
           - teastore-private-3
         component_version: ''
         admin_credential: ''
+      artifacts:
+        container_image:
+          type: Deployment.Image.VM
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -842,7 +853,6 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: OCI Image
         load_shedding: false
         assigned_networks:
           - teastore-private-1
@@ -850,6 +860,10 @@ service_template:
           - teastore-private-3
         component_version: ''
         admin_credential: ''
+      artifacts:
+        container_image:
+          type: Deployment.Image.VM
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -1096,7 +1110,6 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: OCI Image
         load_shedding: false
         assigned_networks:
           - teastore-private-1
@@ -1104,6 +1117,10 @@ service_template:
           - teastore-private-3
         component_version: ''
         admin_credential: ''
+      artifacts:
+        container_image:
+          type: Deployment.Image.VM
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
@@ -1609,7 +1626,6 @@ service_template:
         managed: ''
         software_type: custom
         stateless: true
-        artifact: OCI Image
         load_shedding: false
         assigned_networks:
           - teastore-private-1
@@ -1617,6 +1633,10 @@ service_template:
           - teastore-private-3
         component_version: ''
         admin_credential: ''
+      artifacts:
+        container_image:
+          type: Deployment.Image.VM
+          file: ''        
       requirements:
         - provides_endpoint:
             capability: Endpoint
