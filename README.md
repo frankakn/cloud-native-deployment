@@ -42,8 +42,9 @@ These extensions mainly cover basic deployment options, without a specific focus
 
 #### Component entity
 
-* property **artifact**: Which type of artifact is built for the specific component to deploy it: e.g. "OCI image" | "jar" | "VM image" | "Lambda function" | "native executable"
 * property **assigned_networks**: list of networks the component is assigned to
+* (The specification of artifacts which are used to deploy a component (e.g., OCI image, jar, VM image, Lambda function, native executable) is now supported through the **artifacts** attribute of the TOSCA Node Type; In a previous version, an additional property was used.)
+
 
 #### Deployment Mapping entity
 
@@ -66,7 +67,7 @@ These extensions are more specific to the implemented options and exemplary mode
 
 #### Component entity
 
-* property: **load shedding**: boolean: Whether or not this component applies load shedding
+* property: **load_shedding**: boolean: Whether or not this component applies load shedding
 * requirement: **proxied_by**: Reference to a backing service which acts as a proxy for all communication to this component
 
 #### Deployment Mapping entity
@@ -77,6 +78,6 @@ These extensions are more specific to the implemented options and exemplary mode
 
 #### Endpoint entity
 
-* property: **rate limiting**: Whether for this endpoint a certain rate limit is enforced. If not it is "none", otherwise the limit can be stated, such as "100 requests per second"
-* property: **Readiness Check**: boolean: Whether this endpoint can be used as a readiness check
-* property: **Health Check**: boolean: Whether this endpoint can be used as a health check
+* property: **rate_limiting**: Whether for this endpoint a certain rate limit is enforced. If not it is "none", otherwise the limit can be stated, such as "100 requests per second"
+* property: **readiness_check**: boolean: Whether this endpoint can be used as a readiness check
+* property: **health_check**: boolean: Whether this endpoint can be used as a health check
