@@ -524,7 +524,7 @@ resource "aws_lb_target_group" "external_lb_tg_http" {
   port              = var.extlb_listener_http_port
   protocol          = "TCP"
   vpc_id            = var.vpc_id
-  proxy_protocol_v2 = true
+  proxy_protocol_v2 = false
 
   depends_on = [
     aws_lb.external_lb

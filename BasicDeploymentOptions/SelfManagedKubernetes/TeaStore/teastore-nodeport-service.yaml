@@ -311,29 +311,8 @@ spec:
   type: NodePort
   ports:
     - port: 8080
-      nodePort: 30090
+      targetPort: 8080
+      nodePort: 30080
       protocol: TCP
   selector:
     run: teastore-webui
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  namespace: teastore-namespace
-  name: ingress-teastore
-  annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/load-balancer-name: alb-eks
-spec:
-  ingressClassName: alb
-  rules:
-    - http:
-        paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: teastore-webui
-              port:
-                number: 8080

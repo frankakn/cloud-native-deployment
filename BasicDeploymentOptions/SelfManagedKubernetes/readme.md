@@ -80,4 +80,19 @@ Now you can update the server address in `~/.kube/config` to `https://localhost:
 
 ### 5. Deploy the TeaStore
 
-**TODO**
+If you only have configured one Kubernetes Cluster in `~/.kube/config`, you can deploy the TeaStore. Otherwise make sure that you are in the correct context for the deployment.
+
+```sh
+kubectl config get-contexts # check which contexts exist
+kubectl config use-context <the name of your cloud context> # set the current context
+```
+
+The actual deployment can be done with: 
+
+```sh
+TeaStore$ kubectl apply -f teastore-nodeport-service.yaml
+```
+
+The application can then be reached with the URL of printed as `k8s_dns_name` from the previous terraform output.
+
+*This example only uses HTTP, for HTTPS, an additional ingress resource can be used*

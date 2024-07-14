@@ -121,30 +121,20 @@ exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
 EOF
 }
 
-#setup_kubelet_config() {
-#cat <<EOF | sudo tee /var/lib/kubelet/config.yaml
-#---
-#apiVersion: kubelet.config.k8s.io/v1beta1
-#kind: KubeletConfiguration
-#cgroupDriver: systemd
-#EOF
-#}
-
-
 setup_cri_amz(){
-  curl -L -o containerd-1.7.18-linux-arm64.tar.gz https://github.com/containerd/containerd/releases/download/v1.7.18/containerd-1.7.18-linux-arm64.tar.gz
-  tar Cxzvf /usr/local containerd-1.7.18-linux-arm64.tar.gz
+  curl -L -o containerd-1.7.19-linux-amd64.tar.gz https://github.com/containerd/containerd/releases/download/v1.7.19/containerd-1.7.19-linux-amd64.tar.gz
+  tar Cxzvf /usr/local containerd-1.7.19-linux-amd64.tar.gz
 
   render_containerd_service
 
   systemctl daemon-reload
   systemctl enable --now containerd
 
-  curl -L -o runc.arm64 https://github.com/opencontainers/runc/releases/download/v1.1.13/runc.arm64
-  install -m 755 runc.arm64 /usr/local/sbin/runc
+  curl -L -o runc.amd64 https://github.com/opencontainers/runc/releases/download/v1.1.13/runc.amd64
+  install -m 755 runc.amd64 /usr/local/sbin/runc
 
-  curl -L -o  cni-plugins-linux-arm64-v1.5.0.tgz https://github.com/containernetworking/plugins/releases/download/v1.5.0/cni-plugins-linux-arm64-v1.5.0.tgz
-  tar Cxzvf /opt/cni/bin cni-plugins-linux-arm64-v1.5.0.tgz
+  curl -L -o  cni-plugins-linux-amd64-v1.5.1.tgz https://github.com/containernetworking/plugins/releases/download/v1.5.1/cni-plugins-linux-amd64-v1.5.1.tgz
+  tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.5.1.tgz
 
   mkdir -p /etc/containerd
   cat /etc/containerd/config.toml | grep -Fx "[grpc]"
@@ -226,7 +216,6 @@ if [[ "$operating_system" == "ubuntu" ]]; then
   install_aws_cli
   setup_repos
   setup_cri
-#  setup_kubelet_config
   install_k8s_utils
 fi
 
@@ -234,6 +223,5 @@ if [[ "$operating_system" == "amazonlinux" ]]; then
   preflight_amz
   setup_repos_amz
   setup_cri_amz
-#  setup_kubelet_config
   install_k8s_utils_amz
 fi

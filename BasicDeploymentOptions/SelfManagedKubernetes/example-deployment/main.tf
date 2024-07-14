@@ -49,7 +49,7 @@ module "k8s-cluster" {
   vpc_subnet_cidr           = var.vpc_cidr_block
   my_public_ip_cidr         = var.my_public_ip_cidr
   create_extlb              = true
-  install_nginx_ingress     = true
+  install_nginx_ingress     = false
   efs_persistent_storage    = true
   expose_kubeapi            = false
   expose_kubeapi_locally    = true
@@ -60,6 +60,10 @@ module "k8s-cluster" {
 
 output "k8s_dns_name" {
   value = module.k8s-cluster.k8s_dns_name
+}
+
+output "k8s_internal_server_dns_name" {
+  value = module.k8s-cluster.k8s_internal_dns_name
 }
 
 output "k8s_server_private_ips" {

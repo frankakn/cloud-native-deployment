@@ -56,7 +56,7 @@ variable "ec2_associate_public_ip_address" {
 
 variable "ami" {
   type    = string
-  default = "ami-0990787f7b841aecf"
+  default = "ami-024ebc7de0fc64e44"
 }
 
 variable "default_instance_type" {
@@ -69,10 +69,10 @@ variable "instance_types" {
   description = "List of instance types to use"
   type        = map(string)
   default = {
-    asg_instance_type_1 = "a1.large"
-    asg_instance_type_2 = "a1.xlarge"
-    asg_instance_type_3 = "c6g.large"
-    asg_instance_type_4 = "c6gd.large"
+    asg_instance_type_1 = "t3.medium"
+    asg_instance_type_2 = "t3a.medium"
+    asg_instance_type_3 = "c5a.large"
+    asg_instance_type_4 = "c6a.large"
   }
 }
 
