@@ -118,7 +118,7 @@ resource "aws_autoscaling_group" "ecs_asg" {
 
   vpc_zone_identifier = var.vpc_private_subnet_ids
   desired_capacity    = 2
-  max_size            = 3
+  max_size            = 10
   min_size            = 1
 
   launch_template {

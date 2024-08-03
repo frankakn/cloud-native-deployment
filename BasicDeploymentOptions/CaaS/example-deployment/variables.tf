@@ -13,7 +13,7 @@ variable "environment" {
 variable "my_public_ip_cidr" {
   description = "A CIDR range to allow access to the bastion host via SSH"
   type        = string
-  default     = "141.13.163.0/24" #<SET A CIDR RANGE HERE>"
+  default     = "<SET A CIDR RANGE HERE>"
 }
 
 variable "vpc_cidr_block" {
@@ -25,5 +25,5 @@ variable "vpc_cidr_block" {
 variable "ssk_key_pair_name" {
   description = "The name of an existing SSH key pair which is used to access the bastion host"
   type        = string
-  default     = "aws-bastion" #<SET YOUR SSH KEY NAME HERE>"
+  default     = "<SET YOUR SSH KEY NAME HERE>"
 }
