@@ -45,6 +45,7 @@ module "ecs-cluster" {
   vpc_private_subnet_ids = module.private-vpc.private_subnet_ids
   vpc_public_subnet_ids  = module.private-vpc.public_subnet_ids
   key_name               = var.ssk_key_pair_name
+  ecs_cluster_name       = "teastore-ecs-cluster"
   source                 = "../modules/ecs-cluster"
 }
 
@@ -190,7 +191,7 @@ resource "aws_ecs_task_definition" "teastore_db_task_definition" {
         {
           containerPort = 3306
           hostPort = 3306
-          #protocol      = "tcp"
+          protocol      = "tcp"
           name          = "teastore-db-port"
         }
       ]
@@ -236,7 +237,7 @@ resource "aws_ecs_service" "teastore_db_ecs_service" {
       port_name      = "teastore-db-port"
       client_alias {
         dns_name = "teastore-db"
-        port     = 8000
+        port     = 3306
       }
     }
   }
@@ -267,7 +268,7 @@ resource "aws_ecs_task_definition" "teastore_registry_task_definition" {
         {
           containerPort = 8080
           hostPort = 8080
-          #protocol      = "tcp"
+          protocol      = "http"
           name          = "teastore-registry-port"
         }
       ]
@@ -313,7 +314,7 @@ resource "aws_ecs_service" "teastore_registry_ecs_service" {
       port_name      = "teastore-registry-port"
       client_alias {
         dns_name = "teastore-registry"
-        port     = 8000
+        port     = 8080
       }
     }
   }
@@ -363,7 +364,7 @@ resource "aws_ecs_task_definition" "teastore_persistence_task_definition" {
         {
           containerPort = 8080
           hostPort = 8080
-          #protocol      = "tcp"
+          protocol      = "http"
           name          = "teastore-persistence-port"
         }
       ]
@@ -409,7 +410,7 @@ resource "aws_ecs_service" "teastore_persistence_ecs_service" {
       port_name      = "teastore-persistence-port"
       client_alias {
         dns_name = "teastore-persistence"
-        port     = 8000
+        port     = 8080
       }
     }
   }
@@ -450,7 +451,7 @@ resource "aws_ecs_task_definition" "teastore_auth_task_definition" {
         {
           containerPort = 8080
           hostPort = 8080
-          #protocol      = "tcp"
+          protocol      = "http"
           name          = "teastore-auth-port"
         }
       ]
@@ -498,7 +499,7 @@ resource "aws_ecs_service" "teastore_auth_ecs_service" {
       port_name      = "teastore-auth-port"
       client_alias {
         dns_name = "teastore-auth"
-        port     = 8000
+        port     = 8080
       }
     }
   }
@@ -539,7 +540,7 @@ resource "aws_ecs_task_definition" "teastore_image_task_definition" {
         {
           containerPort = 8080
           hostPort = 8080
-          #protocol      = "tcp"
+          protocol      = "http"
           name          = "teastore-image-port"
         }
       ]
@@ -587,7 +588,7 @@ resource "aws_ecs_service" "teastore_image_ecs_service" {
       port_name      = "teastore-image-port"
       client_alias {
         dns_name = "teastore-image"
-        port     = 8000
+        port     = 8080
       }
     }
   }
@@ -628,7 +629,7 @@ resource "aws_ecs_task_definition" "teastore_recommender_task_definition" {
         {
           containerPort = 8080
           hostPort = 8080
-          #protocol      = "tcp"
+          protocol      = "http"
           name          = "teastore-recommender-port"
         }
       ]
@@ -676,7 +677,7 @@ resource "aws_ecs_service" "teastore_recommender_ecs_service" {
       port_name      = "teastore-recommender-port"
       client_alias {
         dns_name = "teastore-recommender"
-        port     = 8000
+        port     = 8080
       }
     }
   }
@@ -717,7 +718,7 @@ resource "aws_ecs_task_definition" "teastore_webui_task_definition" {
         {
           containerPort = 8080
           hostPort = 8080
-          protocol      = "tcp"
+          protocol      = "http"
           name          = "teastore-webui-port"
         }
       ]
@@ -771,7 +772,7 @@ resource "aws_ecs_service" "teastore_webui_ecs_service" {
       port_name      = "teastore-webui-port"
       client_alias {
         dns_name = "teastore-webui"
-        port     = 8000
+        port     = 8080
       }
     }
   }
@@ -828,7 +829,7 @@ resource "aws_alb_target_group" "service_target_group" {
     unhealthy_threshold = "2"
     interval            = "60"
     matcher             = "200"
-    path                = "/"
+    path                = "/tools.descartes.teastore.webui/"
     port                = "traffic-port"
     protocol            = "HTTP"
     timeout             = "30"
