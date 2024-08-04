@@ -7,7 +7,7 @@ The architectural models can be opened in the corresponding tool: <https://cloun
 ## Cloud-native Deployment Options
 
 The product factors of the quality aspect *Reliability* from the cloud-native quality model by Lichtenthäler and Wirtz were implemented using the microservice reference application [Teastore](https://github.com/DescartesResearch/TeaStore).  
-The [baseline architecture](./BaselineArchitecture) of the cloud-native application deployment was implemented using AWS EKS.  
+The [baseline architecture](./DeploymentOptions/ManagedK8sManagedNodeGroup-BaselineArchitecture) of the cloud-native application deployment was implemented using AWS EKS.  
 In addition, the implementation options for each product factor were added in a modular manner to complement the baseline architecture.  
 The repository is structured as follows: Each directory of a product factor contains the options and solutions that contribute to the implementation of the reliability aspect. Corresponding implementation instructions are provided, as well as corresponding changes to the workload definition of the TeaStore.  
 Furthermore, models representing the different architectural options are added as examples.
@@ -55,7 +55,7 @@ More specifically, the following extensions have been introduced and can be foun
 
 ### Extensions for characterizing different deployment options
 
-These extensions mainly cover basic deployment options, without a specific focus on reliability. Exemplary models for the TeaStore application can be found in [BasicDeploymentOptions](https://github.com/frankakn/reliability-deployment/tree/main/BasicDeploymentOptions/).
+These extensions mainly cover basic deployment options, without a specific focus on reliability. Exemplary implementations and models for the TeaStore application can be found in [DeploymentOptions](https://github.com/frankakn/reliability-deployment/tree/main/DeploymentOptions/).
 
 #### Infrastructure entity
 
