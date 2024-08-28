@@ -1,6 +1,6 @@
 # Deployment Option using Container as a Service based on AWS ECS
 
-This setup is based on the work by [https://github.com/garutilorenzo/k8s-aws-terraform-cluster] and [https://nexgeneerz.io/aws-computing-with-ecs-ec2-terraform/] with adaptations.
+This setup is based on the work by <https://github.com/garutilorenzo/k8s-aws-terraform-cluster> and <https://nexgeneerz.io/aws-computing-with-ecs-ec2-terraform/> with adaptations.
 
 ## Provision the ECS Cluster and deploy the TeaStore application
 
